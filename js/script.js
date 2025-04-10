@@ -52,9 +52,15 @@ const compositionCard = (totalPrice, userName, userSurname, userType, userKm) =>
   document.getElementById("typeClientCard").innerText = `${userType}`;
 };
 
+// FUNZIONE GESTIONE ERROR ALERT
+const getAlertForm = () => {
+  document.getElementById("alert").classList.remove("d-none");
+  document.getElementById("alert").classList.add("d-block");
+};
+
 //############################### ALGORITMO
 
-// ACQUISIZIONE DATI
+// ACQUISIZIONE DATI FORM
 
 const nomeEl = document.getElementById("inputName");
 const cognomeEl = document.getElementById("inputSurname");
@@ -71,9 +77,19 @@ ticketForm.addEventListener("submit", function (event) {
   const userKm = parseInt(kmEl.value);
   const userType = TypeClientEl.value;
 
-  if (!userName) return;
-  if (!userSurname) return;
-  if (!userKm) return;
+  // GESTIONE ERRORI
+  if (!userName) {
+    getAlertForm();
+    return;
+  }
+  if (!userSurname) {
+    getAlertForm();
+    return;
+  }
+  if (!userKm) {
+    getAlertForm();
+    return;
+  }
 
   // CALCOLO BIGLIETTO
   const totalPrice = priceCalc(userType, userKm);
@@ -85,4 +101,14 @@ ticketForm.addEventListener("submit", function (event) {
   // VISUALIZZAZIONE CARD
   document.getElementById("ticketCard").classList.remove("d-none");
   document.getElementById("ticketCard").classList.add("d-block");
+});
+
+// CANCELLA DATI FORM
+
+cancelForm.addEventListener("click", function (event) {
+  document.getElementById("ticketForm").reset();
+  document.getElementById("ticketCard").classList.add("d-none");
+  console.log(document.getElementById("alert"));
+
+  document.getElementById("alert").classList.add("d-none");
 });
