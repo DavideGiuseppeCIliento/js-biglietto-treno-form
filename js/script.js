@@ -47,9 +47,9 @@ const compositionCard = (totalPrice, userName, userSurname, userType, userKm) =>
   const carrige = getRandomCarriage();
   document.getElementById("nameCard").innerText = `${userName} ${userSurname}`;
   document.getElementById("cpCard").innerText = `Codice CP: ${cpCard}`;
-  document.getElementById("carrigeCard").innerText = `Carrozza N. ${carrige}`;
-  document.getElementById("kmRoadCard").innerText = `Carrozza N. ${carrige}`;
-  document.getElementById("typeClientCard").innerText = `Distanza da percorrere: ${userKm}Km`;
+  document.getElementById("carrigeCard").innerHTML = `<strong>Carrozza N.</strong> ${carrige}`;
+  document.getElementById("kmRoadCard").innerHTML = `<strong>Distanza da percorrere:</strong> ${userKm}Km`;
+  document.getElementById("typeClientCard").innerText = `${userType}`;
 };
 
 //############################### ALGORITMO
@@ -71,10 +71,18 @@ ticketForm.addEventListener("submit", function (event) {
   const userKm = parseInt(kmEl.value);
   const userType = TypeClientEl.value;
 
+  if (!userName) return;
+  if (!userSurname) return;
+  if (!userKm) return;
+
   // CALCOLO BIGLIETTO
   const totalPrice = priceCalc(userType, userKm);
   console.log(totalPrice);
 
   // COMPOSIZIONE CARD
   compositionCard(totalPrice, userName, userSurname, userType, userKm);
+
+  // VISUALIZZAZIONE CARD
+  document.getElementById("ticketCard").classList.remove("d-none");
+  document.getElementById("ticketCard").classList.add("d-block");
 });

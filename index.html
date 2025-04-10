@@ -42,7 +42,7 @@
       <!---------------------------  MAIN --------------------------->
       <main>
         <div class="container">
-          <div class="row p-5">
+          <div class="row p-5 g-5">
             <div class="col-12 col-lg-6 d-flex justify-content-center align-item-center">
               <!-- ############### FORM -->
               <form class="row g-3" id="ticketForm">
@@ -88,13 +88,13 @@
             </div>
             <div class="col-12 col-lg-6 d-flex justify-content-center align-item-center">
               <!-- ############### CARD -->
-              <div class="card mb-3" style="max-width: 540px">
+              <div class="card mb-3 d-none" style="max-width: 540px" id="ticketCard">
                 <div class="row g-0">
-                  <div class="col-md-4">
-                    <img src="./assets/img/treno.jpg" class="img-fluid rounded-start" alt="treno" />
+                  <div class="col-md-4 w-20">
+                    <img src="./assets/img/treno.jpg" class="img-fluid h-100 rounded-start object-fit-cover" alt="Treno" />
                   </div>
                   <div class="col-md-8">
-                    <div class="card-body d-flex flex-column position-relative">
+                    <div class="card-body d-flex flex-column h-100 position-relative">
                       <!-- Carrozza in absolute -->
                       <span class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1 rounded-start">
                         <span id="carrigeCard">N Carrozza</span>
@@ -103,7 +103,7 @@
                       <h5 class="card-title" id="nameCard">Card title</h5>
                       <p class="card-text" id="cpCard">Codice CP</p>
                       <p class="card-text" id="kmRoadCard">Km da percorrere</p>
-                      <p class="card-text"><small class="text-body-secondary" id="typeClientCard">Tipologia Biglietto</small></p>
+                      <p class="card-text mt-auto"><small class="text-body-secondary" id="typeClientCard">Tipologia Biglietto</small></p>
                     </div>
                   </div>
                 </div>
