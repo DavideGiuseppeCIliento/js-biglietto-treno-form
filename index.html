@@ -31,71 +31,79 @@
   <body>
     <div class="wrapper">
       <!------------------------- HEADER ------------------------->
-      <header>Ciao</header>
+      <header class="bg-primary mb-5 text-light">
+        <div class="container">
+          <div class="row p-2">
+            <div class="col text-center"><h1>Biglietteria Online</h1></div>
+          </div>
+        </div>
+      </header>
 
       <!---------------------------  MAIN --------------------------->
       <main>
-        <div class="containe">
-          <div class="row">
-            <div class="col col-lg-6">
+        <div class="container">
+          <div class="row p-5">
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-item-center">
               <!-- ############### FORM -->
-              <form class="row g-3">
+              <form class="row g-3" id="ticketForm">
+                <!-- ALERT MESSAGE -->
+                <div class="alert alert-danger" role="alert">This is a danger alert—check it out!</div>
+
                 <div class="col-md-6">
-                  <label for="inputEmail4" class="form-label">Email</label>
-                  <input type="email" class="form-control" id="inputEmail4" />
+                  <!-- NOME -->
+                  <label for="inputName" class="form-label">Nome</label>
+                  <input type="Text" class="form-control" id="inputName" />
                 </div>
+                <!-- COGNOME -->
                 <div class="col-md-6">
-                  <label for="inputPassword4" class="form-label">Password</label>
-                  <input type="password" class="form-control" id="inputPassword4" />
+                  <label for="inputSurname" class="form-label">Cognome</label>
+                  <input type="Text" class="form-control" id="inputSurname" />
                 </div>
-                <div class="col-12">
-                  <label for="inputAddress" class="form-label">Address</label>
-                  <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" />
-                </div>
-                <div class="col-12">
-                  <label for="inputAddress2" class="form-label">Address 2</label>
-                  <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor" />
-                </div>
+                <!-- KM DA PERCORRERE -->
                 <div class="col-md-6">
-                  <label for="inputCity" class="form-label">City</label>
-                  <input type="text" class="form-control" id="inputCity" />
+                  <label for="inputKm" class="form-label">Km da percorrere</label>
+                  <input type="text" class="form-control" id="inputKm" />
                 </div>
-                <div class="col-md-4">
-                  <label for="inputState" class="form-label">State</label>
-                  <select id="inputState" class="form-select">
-                    <option selected>Choose...</option>
-                    <option>...</option>
+                <!-- TIPOLOGIA CLIENTE -->
+                <div class="col-md-6">
+                  <label for="inputTypeClient" class="form-label">Tipologia Cliente</label>
+                  <select id="inputTypeClient" class="form-select">
+                    <option>Under 18</option>
+                    <option selected>Adulto</option>
+                    <option>Over 65</option>
                   </select>
                 </div>
-                <div class="col-md-2">
-                  <label for="inputZip" class="form-label">Zip</label>
-                  <input type="text" class="form-control" id="inputZip" />
-                </div>
+
                 <div class="col-12">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck" />
-                    <label class="form-check-label" for="gridCheck"> Check me out </label>
+                    <label class="form-check-label" for="gridCheck"> Ho letto e accetto la Privacy Policy.</label>
                   </div>
                 </div>
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Sign in</button>
+                  <button type="submit" class="btn btn-primary">Prenota</button>
+                  <button type="submit" class="btn btn-danger">Annulla</button>
                 </div>
               </form>
             </div>
-            <div class="col col-lg-6">
+            <div class="col-12 col-lg-6 d-flex justify-content-center align-item-center">
               <!-- ############### CARD -->
               <div class="card mb-3" style="max-width: 540px">
                 <div class="row g-0">
                   <div class="col-md-4">
-                    <img src="..." class="img-fluid rounded-start" alt="..." />
+                    <img src="./assets/img/treno.jpg" class="img-fluid rounded-start" alt="treno" />
                   </div>
                   <div class="col-md-8">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">
-                        This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-                      </p>
-                      <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    <div class="card-body d-flex flex-column position-relative">
+                      <!-- Carrozza in absolute -->
+                      <span class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1 rounded-start">
+                        <span id="carrigeCard">N Carrozza</span>
+                      </span>
+
+                      <h5 class="card-title" id="nameCard">Card title</h5>
+                      <p class="card-text" id="cpCard">Codice CP</p>
+                      <p class="card-text" id="kmRoadCard">Km da percorrere</p>
+                      <p class="card-text"><small class="text-body-secondary" id="typeClientCard">Tipologia Biglietto</small></p>
                     </div>
                   </div>
                 </div>
